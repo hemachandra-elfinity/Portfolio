@@ -42,12 +42,27 @@ Projects - List of personal projects with GitHub links
 Contact - 	Form to contact via email or Google Sheets
 
 ## 📌 7. Contact Form Integration
-< Form fields: > Name, Email, Phone, Message
+-**Form fields:**  Name, Email, Phone, Message
 
-Backend: Google Apps Script
+-**Backend:** Google Apps Script
 
-Destination: Submissions stored in a Google Sheet
+-**Destination:** Submissions stored in a Google Sheet
 
-Validation: Email format, 10-digit phone number
+-**Validation:** Email format, 10-digit phone number
+
+## 📌 8. Deployment
+Hosted on: GitHub Pages and Netlify
+
+## 📌 9. Screenshots
+Include screenshots of:
+
+Desktop view
+<img width="1892" height="870" alt="Image" src="https://github.com/user-attachments/assets/9db4bc5b-edfe-4580-8f93-8d6fdbe266d4" />
+
+Mobile view
+
+Contact form working
+
+Projects section
 
 
