@@ -304,6 +304,11 @@ footer {
     font-size: 1rem;
     border-radius: 0 0 16px 16px;
 }
+ #responseMsg {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
 @media (max-width: 700px) {
     .about-section, .skills-section, .projects-section, .contact-section {
         padding: 1rem;

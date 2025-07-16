@@ -25,57 +25,40 @@ navLinks && navLinks.querySelectorAll('a').forEach(link => {
         }
     });
 });
-// Contact form feedback
 
 
-// const contactForm = document.getElementById('contactForm');
-// const formMessage = document.getElementById('formMessage');
-// if (contactForm && formMessage) {
-//     contactForm.addEventListener('submit', function(e) {
-//         e.preventDefault();
-//         formMessage.textContent = 'Thank you for your message!';
-//         contactForm.reset();
-//         setTimeout(() => {
-//             formMessage.textContent = '';
-//         }, 4000);
-//     });
-// } 
 
-
-  
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const responseMsg = document.getElementById("responseMsg");
-
-  form.addEventListener("submit", function (e) {
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const formData = new FormData(form);
-    const params = new URLSearchParams(formData).toString();
 
-    fetch("https://script.google.com/macros/s/AKfycbzqBgSFXJ4vaLPLhR4VEf6N-r-GMZXN0brWUlGNnUIDa47nkH0IMCpwoB0MmJ0hTv-_mg/exec", {
-      method: "POST",
-      body: params,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    })
-    .then(res => res.text())
-    .then(result => {
-      console.log("Response:", result);
-      if (result.trim() === "Success") {
-        form.reset();
-        responseMsg.style.display = "block";
-        setTimeout(() => responseMsg.style.display = "none", 4000);
-      } else {
-        alert("Success");
-      }
-    })
-    .catch(err => {
-      console.error("Error:", err);
-      alert("Error submitting form.");
-    });
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    const phonePattern = /^[0-9]{10}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!phonePattern.test(phone)) {
+      alert("❌ Please enter a valid 10-digit phone number.");
+    } else if (!emailPattern.test(email)) {
+      alert("❌ Please enter a valid email address.");
+    } else {
+      fetch("https://script.google.com/macros/s/AKfycbwfXwnPwVvw3uN4fs4MLBAwJqw5RrCFJ9j4orGnkhg1W9EpXRqbdXkzZO-FobzXZkoqfA/exec", {
+        method: "POST",
+        body: new FormData(document.getElementById("contactForm"))
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data.toLowerCase().includes("success")) {
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("thankYouMessage").style.display = "block";
+        } else {
+          alert("❌ Failed to submit form. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("❌ Submission error occurred.");
+      });
+    }
   });
-});
-  // Load data on page load
-  fetchSheetData();
 
