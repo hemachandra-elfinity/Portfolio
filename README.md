@@ -56,10 +56,11 @@ Hosted on: GitHub Pages and Netlify
 ## 📌 9. Screenshots
 Include screenshots of:
 
-Desktop view
+-**Desktop view**
 <img width="1892" height="870" alt="Image" src="https://github.com/user-attachments/assets/9db4bc5b-edfe-4580-8f93-8d6fdbe266d4" />
 
-Mobile view
+-**Mobile view**
+<img width="490" height="745" alt="Image" src="https://github.com/user-attachments/assets/027fca60-94e3-4331-a839-a2dec4d91d09" />
 
 Contact form working
 
